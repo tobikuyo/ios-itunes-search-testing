@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2CF1B08E242918AA00E65932 /* SearrchResultsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1B08D242918AA00E65932 /* SearrchResultsControllerTests.swift */; };
+		2CF1B0972429214100E65932 /* NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1B0962429214100E65932 /* NetworkDataLoader.swift */; };
+		2CF1B0992429222400E65932 /* URLSession+NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1B0982429222400E65932 /* URLSession+NetworkDataLoader.swift */; };
 		46BF022B2117D59500A24DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF022A2117D59500A24DE5 /* AppDelegate.swift */; };
 		46BF02302117D59500A24DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BF022E2117D59500A24DE5 /* Main.storyboard */; };
 		46BF02322117D59700A24DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BF02312117D59700A24DE5 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		2CF1B08B242918AA00E65932 /* SearrchResultsControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearrchResultsControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF1B08D242918AA00E65932 /* SearrchResultsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearrchResultsControllerTests.swift; sourceTree = "<group>"; };
 		2CF1B08F242918AA00E65932 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CF1B0962429214100E65932 /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
+		2CF1B0982429222400E65932 /* URLSession+NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+NetworkDataLoader.swift"; sourceTree = "<group>"; };
 		46BF02272117D59500A24DE5 /* iTunes Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iTunes Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BF022A2117D59500A24DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BF022F2117D59500A24DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +77,15 @@
 			path = SearrchResultsControllerTests;
 			sourceTree = "<group>";
 		};
+		2CF1B0952429210B00E65932 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2CF1B0962429214100E65932 /* NetworkDataLoader.swift */,
+				2CF1B0982429222400E65932 /* URLSession+NetworkDataLoader.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		46BF021E2117D59500A24DE5 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +107,7 @@
 		46BF02292117D59500A24DE5 /* iTunes Search */ = {
 			isa = PBXGroup;
 			children = (
+				2CF1B0952429210B00E65932 /* Helpers */,
 				46BF024A2117E4E400A24DE5 /* Models */,
 				46BF024C2117E4F400A24DE5 /* Model Controllers */,
 				46BF02492117E4DF00A24DE5 /* View Controllers */,
@@ -260,9 +274,11 @@
 			files = (
 				46BF02452117E36400A24DE5 /* ResultType.swift in Sources */,
 				46BF02412117DC5200A24DE5 /* SearchResultController.swift in Sources */,
+				2CF1B0992429222400E65932 /* URLSession+NetworkDataLoader.swift in Sources */,
 				46BF02472117E37000A24DE5 /* HTTPMethod.swift in Sources */,
 				46BF02432117E01600A24DE5 /* ItunesSearchTableViewController.swift in Sources */,
 				46BF023F2117D8FB00A24DE5 /* SearchResult.swift in Sources */,
+				2CF1B0972429214100E65932 /* NetworkDataLoader.swift in Sources */,
 				46BF022B2117D59500A24DE5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
