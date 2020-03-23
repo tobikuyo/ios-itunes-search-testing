@@ -29,7 +29,7 @@ class SearrchResultsControllerTests: XCTestCase {
       let expectation = self.expectation(description: "Wait for results")
       
       controller.performSearch(for: "GarageBand", resultType: .software) {
-//         XCTFail()
+         //         XCTFail()
          expectation.fulfill()
       }
       
@@ -40,11 +40,11 @@ class SearrchResultsControllerTests: XCTestCase {
       measure {
          let controller = SearchResultController()
          let expectation = self.expectation(description: "Wait for results")
-
+         
          controller.performSearch(for: "GarageBand", resultType: .software) {
             expectation.fulfill()
          }
-
+         
          wait(for: [expectation], timeout: 5)
       }
    }
@@ -63,5 +63,52 @@ class SearrchResultsControllerTests: XCTestCase {
          
          wait(for: [expectation], timeout: 5)
       }
+   }
+   
+   func testValidData() {
+      let mockDataLoader = MockDataLoader(data: goodResultData, response: nil, error: nil)
+      
+      let controller = SearchResultController(dataLoader: mockDataLoader)
+      let expectation = self.expectation(description: "Wait for results")
+      
+      controller.performSearch(for: "GarageBand", resultType: .software) {
+         expectation.fulfill()
+      }
+      
+      wait(for: [expectation], timeout: 5)
+      XCTAssertEqual(controller.searchResults.count, 2, "Expected 2 results for \"GarageBand\"")
+      
+      let firstResult = controller.searchResults[0]
+      
+      XCTAssertEqual(firstResult.title, "GarageBand")
+      XCTAssertEqual(firstResult.artist, "Apple")
+   }
+   
+   func testInvalidJSON() {
+      let mockDataLoader = MockDataLoader(data: badJSONData, response: nil, error: nil)
+      
+      let controller = SearchResultController(dataLoader: mockDataLoader)
+      let expectation = self.expectation(description: "Wait for results")
+      
+      controller.performSearch(for: "GarageBand", resultType: .software) {
+         expectation.fulfill()
+      }
+      
+      wait(for: [expectation], timeout: 5)
+      XCTAssertEqual(controller.searchResults.count, 0, "Expected 0 results for \"GarageBand\"")
+   }
+   
+   func testNoResultsData() {
+      let mockDataLoader = MockDataLoader(data: noResultsData, response: nil, error: nil)
+      
+      let controller = SearchResultController(dataLoader: mockDataLoader)
+      let expectation = self.expectation(description: "Wait for results")
+      
+      controller.performSearch(for: "GarageBand", resultType: .software) {
+         expectation.fulfill()
+      }
+      
+      wait(for: [expectation], timeout: 5)
+      XCTAssertEqual(controller.searchResults.count, 0, "Expected 0 results for \"GarageBand\"")
    }
 }

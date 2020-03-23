@@ -14,9 +14,9 @@ class MockDataLoader: NetworkDataLoader {
    let resposne: URLResponse?
    let error: Error?
    
-   internal init(data: Data?, resposne: URLResponse?, error: Error?) {
+   internal init(data: Data?, response: URLResponse?, error: Error?) {
       self.data = data
-      self.resposne = resposne
+      self.resposne = response
       self.error = error
    }
    
